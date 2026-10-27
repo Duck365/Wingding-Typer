@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wingdings Typer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Main Menu -->
+        <div id="main-menu" class="screen active">
+            <h1 class="title-glow">WINGDINGS TYPER</h1>
+            <button class="menu-btn" onclick="showScreen('tests-menu')">TESTS</button>
+            <button class="menu-btn" onclick="showScreen('practice-menu')">PRACTICE</button>
+            <button class="menu-btn" onclick="showScreen('key-screen')">KEY</button>
+        </div>
+
+        <!-- Tests Menu -->
+        <div id="tests-menu" class="screen">
+            <h1 class="title-glow">TESTS</h1>
+            <button class="menu-btn" onclick="setupRegularTest()">REGULAR TEST</button>
+            <button class="menu-btn" onclick="openCaseSelection('tests', 'Words')">WORDS</button>
+            <button class="menu-btn" onclick="openCaseSelection('tests', 'Letters')">LETTERS</button>
+            <button class="menu-btn" onclick="openCaseSelection('tests', 'Numbers')">NUMBERS</button>
+            <button class="menu-btn" onclick="openCaseSelection('tests', 'Symbols')">SYMBOLS</button>
+            <button class="menu-btn" onclick="openCaseSelection('tests', 'Punctuation')">PUNCTUATION</button>
+            <button class="menu-btn" onclick="openCaseSelection('tests', 'Mix')">COMPREHENSIVE MIX</button>
+            <button class="menu-btn back-btn" onclick="showScreen('main-menu')">BACK</button>
+        </div>
+
+        <!-- Practice Menu -->
+        <div id="practice-menu" class="screen">
+            <h1 class="title-glow">PRACTICE (ENDLESS)</h1>
+            <button class="menu-btn" onclick="openCaseSelection('practice', 'Words')">WORDS</button>
+            <button class="menu-btn" onclick="openCaseSelection('practice', 'Letters')">LETTERS</button>
+            <button class="menu-btn" onclick="openCaseSelection('practice', 'Numbers')">NUMBERS</button>
+            <button class="menu-btn" onclick="openCaseSelection('practice', 'Symbols')">SYMBOLS</button>
+            <button class="menu-btn" onclick="openCaseSelection('practice', 'Punctuation')">PUNCTUATION</button>
+            <button class="menu-btn" onclick="openCaseSelection('practice', 'Mix')">COMPREHENSIVE MIX</button>
+            <button class="menu-btn back-btn" onclick="showScreen('main-menu')">BACK</button>
+        </div>
+
+        <!-- Case Selection Screen -->
+        <div id="case-menu" class="screen">
+            <h1 class="title-glow">SELECT CASE</h1>
+            <button class="menu-btn" onclick="startGame('lowercase')">ALL LOWERCASE</button>
+            <button class="menu-btn" onclick="startGame('uppercase')">ALL CAPS</button>
+            <button class="menu-btn" onclick="startGame('regular')">REGULAR TEXT</button>
+            <button class="menu-btn back-btn" onclick="goBackFromCase()">BACK</button>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <div id="hud">
+                <div id="timer-display">Time: 00:00</div>
+                <div id="stats-display">WPM: 0 | Acc: 100%</div>
+            </div>
+            <div id="display-container">
+                <div id="wingdings-display" class="wingdings-text"></div>
+                <div id="english-display" class="english-text"></div>
+            </div>
+            <!-- Hidden input for mobile/focus typing interception if needed -->
+            <input type="text" id="hidden-input" autocomplete="off" style="position: absolute; opacity: 0; pointer-events: none;">
+            <button class="menu-btn back-btn" onclick="endGame()" style="margin-top: 50px;">BACK TO MENU</button>
+        </div>
+
+        <!-- Key Screen -->
+        <div id="key-screen" class="screen">
+            <h1 class="title-glow">WINGDINGS KEY</h1>
+            <div id="key-grid"></div>
+            <button class="menu-btn back-btn" onclick="showScreen('main-menu')">BACK</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
