@@ -1,0 +1,194 @@
+@font-face {
+    font-family: 'Wingdings';
+    /* Using local standard fonts for Windows/Mac wingdings equivalent */
+    src: local('Wingdings'), local('Wingding');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: #00FF00;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#app {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+.active {
+    display: flex;
+}
+
+.title-glow {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    color: #00FF00;
+    text-shadow: 0 0 15px #00FF00;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.menu-btn {
+    background: transparent;
+    border: 2px solid #00FF00;
+    color: #00FF00;
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.2s;
+    text-transform: uppercase;
+    min-width: 350px;
+}
+
+.menu-btn:hover {
+    background: #00FF00;
+    color: black;
+    box-shadow: 0 0 15px #00FF00;
+}
+
+.back-btn {
+    margin-top: 30px;
+    border-color: #555;
+    color: #ccc;
+}
+
+.back-btn:hover {
+    background: #555;
+    color: white;
+    box-shadow: 0 0 15px #555;
+}
+
+#hud {
+    position: absolute;
+    top: 20px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px #00FF00;
+}
+
+#display-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.wingdings-text {
+    font-family: 'Wingdings', sans-serif;
+    font-size: 6rem; /* Large font for flashcards */
+    margin-bottom: 20px;
+    letter-spacing: 5px;
+    word-wrap: break-word;
+    text-shadow: 0 0 10px #00FF00;
+    transition: font-size 0.3s;
+}
+
+/* Modifier class for full pages of text so it scales down */
+.wingdings-text.page-mode {
+    font-size: 2.5rem;
+}
+
+.english-text {
+    font-size: 3rem;
+    letter-spacing: 5px;
+    word-wrap: break-word;
+    opacity: 0.7;
+    margin-bottom: 20px;
+}
+
+.english-text.page-mode {
+    font-size: 1.8rem;
+}
+
+.english-text span.typed {
+    color: white;
+    text-shadow: 0 0 10px white;
+}
+
+.english-text span.incorrect {
+    color: red;
+    text-shadow: 0 0 10px red;
+}
+
+#key-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 15px;
+    max-height: 60vh;
+    width: 80%;
+    overflow-y: auto;
+    padding: 20px;
+    border: 2px solid #00FF00;
+    box-shadow: 0 0 15px #00FF00 inset;
+    background: rgba(0, 255, 0, 0.05);
+}
+
+.key-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border: 1px solid #333;
+    padding: 15px 10px;
+    background: black;
+    transition: 0.2s;
+}
+
+.key-item:hover {
+    border-color: #00FF00;
+    box-shadow: 0 0 10px #00FF00;
+}
+
+.key-wingding {
+    font-family: 'Wingdings', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #00FF00;
+}
+
+.key-english {
+    color: white;
+}
+
+/* Scrollbar styling for key grid */
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    background: black;
+    border-left: 2px solid #00FF00;
+}
+::-webkit-scrollbar-thumb {
+    background: #00FF00;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: white;
+}
